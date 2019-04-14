@@ -10,3 +10,11 @@ my `go.mod` file (in the 'require' section)
 - `go build` also created the `go-football-project` binary which I can execute via a `./go-football-project`. This runs
 the entry point in the application, the main function within the main package.
 
+### Tutorial followed:
+
+- Have built some basic APIs via this medium post: https://medium.com/@cgrant/developing-a-simple-crud-api-with-go-gin-and-gorm-df87d98e6ed1
+
+### TODOs
+
+- Extract things in the main.go file so that everything is not in one place
+- Figure how to get the DB accessible from more than just one place
