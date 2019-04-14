@@ -16,5 +16,8 @@ the entry point in the application, the main function within the main package.
 
 ### TODOs
 
+- Extract db connection credentials somewhere else
 - Extract things in the main.go file so that everything is not in one place
 - Figure how to get the DB accessible from more than just one place
+- Get date of birth working player model with api request
+- Get migrations running by not using the db.Automigrate function
