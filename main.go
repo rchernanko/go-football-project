@@ -14,7 +14,7 @@ var err error
 
 func main() {
 
-	db, err = gorm.Open("mysql", "root:passsssword@tcp(127.0.0.1:3306)/richard_test?charset=utf8&parseTime=True&loc=Local")
+	db, err = gorm.Open("mysql", "root:password@tcp(127.0.0.1:3306)/richard_test?charset=utf8&parseTime=True&loc=Local")
 
 	if err != nil {
 		panic("Failed to connect to the database")
