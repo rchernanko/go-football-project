@@ -8,6 +8,6 @@ func main() {
 
 	//TODO setup the db connection
 
-	r := routes.SetupRoutes()
+	r := routes.InitialiseRoutes()
 	r.Run()
 }
