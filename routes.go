@@ -5,9 +5,16 @@ import (
 )
 
 func initialiseRoutes() {
-	router.GET("/players", handlers.GetPlayers)
-	router.GET("/players/:id", handlers.GetPlayer)
-	router.POST("/players", handlers.CreatePlayer)
-	router.PUT("/players/:id", handlers.UpdatePlayer)
-	router.DELETE("/players/:id", handlers.DeletePlayer)
+	playerRoutes()
+}
+
+func playerRoutes() {
+	playerRoutes := router.Group("/players")
+	{
+		playerRoutes.GET("", handlers.GetPlayers)
+		playerRoutes.GET("/:id", handlers.GetPlayer)
+		playerRoutes.POST("", handlers.CreatePlayer)
+		playerRoutes.PUT("/:id", handlers.UpdatePlayer)
+		playerRoutes.DELETE("/:id", handlers.DeletePlayer)
+	}
 }

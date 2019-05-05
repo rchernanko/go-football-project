@@ -9,7 +9,7 @@ my `go.mod` file (in the 'require' section)
 - The `go build` command also created a `go.sum` file (which keeps track of the exact dependency versions I now have)
 - `go build` also created the `go-football-project` binary which I can execute via a `./go-football-project`. This runs
 the entry point in the application, the main function within the main package.
-- Can also jus ru a ```go run main.go```. This will compile everything, get it all running but will not save a binary executable to disk
+- Can also just ru a ```go run main.go```. This will compile everything, get it all running but will not save a binary executable to disk
 
 ### Tutorial followed:
 
@@ -20,7 +20,7 @@ the entry point in the application, the main function within the main package.
 - ```curl -i -X GET http://localhost:8080/players/1```
 - ```curl -i -X DELETE http://localhost:8080/players/32```
 - ```curl -i -X POST http://localhost:8080/players -d '{"first_name": "harry", "last_name": "kane", "age": 25}'```
-- ```curl -i -X PUT http://localhost:8080/players -d '{"first_name": "harry", "last_name": "kane", "age": 25}'```
+- ```curl -i -X PUT http://localhost:8080/players/1 -d '{"first_name": "harry", "last_name": "kane", "age": 25}'```
 
 # TODO:
 
