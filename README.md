@@ -25,10 +25,10 @@ the entry point in the application, the main function within the main package.
 # TODO:
 
 - Extract db connection credentials somewhere else
-- Extract things in the main.go file so that everything is not in one place - https://www.alexedwards.net/blog/organising-database-access
-- Figure how to get the DB accessible from more than just one place
+- Try to find a nicer way of the main.go and the routes.go not having to be in the same package
 - Get date of birth working player model with api request
 - Get migrations running by not using the db.Automigrate function
+- I've removed `defer Db.Close()` in the db.InitDb function. I should probably add this back in somewhere
 - Implement the following to start with:
 
 ```
