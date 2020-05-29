@@ -12,7 +12,9 @@ func GetPlayers(c *gin.Context) {
 	var pl []models.Player
 
 	if err := database.Db.Find(&pl).Error; err != nil {
-		c.AbortWithStatus(404)
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
 		fmt.Println(err)
 	} else {
 		c.JSON(200, pl)
@@ -21,15 +23,21 @@ func GetPlayers(c *gin.Context) {
 
 func GetPlayer(c *gin.Context) {
 	id := c.Params.ByName("id")
+
 	var pl models.Player
+
 	if err := database.Db.Where("id = ?", id).First(&pl).Error; err != nil {
-		c.AbortWithStatus(404)
-		fmt.Println(err)
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"error": err.Error(),
+		})
 	} else {
 		c.JSON(200, pl)
 	}
 }
 func CreatePlayer(c *gin.Context) {
+
+	//TODO do some sort of transform create with json annotations
+	//TODO AND THEN bind json to a
 	var pl models.Player
 	err := c.BindJSON(&pl)
 
@@ -47,8 +55,10 @@ func UpdatePlayer(c *gin.Context) {
 	var pl models.Player
 	id := c.Params.ByName("id")
 	if err := database.Db.Where("id = ?", id).First(&pl).Error;
-		err != nil{
-		c.AbortWithStatus(404)
+		err != nil {
+		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
+			"error": "no player found with this id",
+		})
 		fmt.Println(err)
 	}
 	err := c.BindJSON(&pl)
@@ -57,6 +67,7 @@ func UpdatePlayer(c *gin.Context) {
 		c.AbortWithStatusJSON(http.StatusBadRequest, gin.H{
 			"error": err.Error(),
 		})
+		fmt.Println(err)
 	} else {
 		database.Db.Save(&pl)
 		c.JSON(200, pl)

@@ -1,7 +1,7 @@
 package models
 
 type Player struct {
-	Id uint `json:"id"`
+	Model
 	FirstName string `json:"first_name" binding:"required" validate:"min=1"`
 	LastName string `json:"last_name" binding:"required" validate:"min=1"`
 	Age int `json:"age" binding:"required" validate:"min=1"`

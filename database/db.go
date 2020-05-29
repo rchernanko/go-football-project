@@ -17,6 +17,5 @@ func InitDb() {
 		panic("Failed to connect to the database")
 	}
 
-	//Runs the migrations for the Player table automatically
-	Db.AutoMigrate(&models.Player{})
+	Db.AutoMigrate(&models.Player{}, &models.Team{})
 }
